@@ -1,22 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"
 
 
-export const NavBar = () => {
-
+export const NavBar = (props) => {
+return (
     <>
-        return
+        
         <ul>
-        <Link className="navbar__link" to="#"
-                onClick={
-                    () => {
-                        localStorage.removeItem("shuttle_user")
-                    }
-                }>
-                    Logout
-                </Link>
+        <li className="navbar__item active">
+                <Link className="navbar__link" to="/">Users</Link>
+            </li>
         </ul>
     </>
 
-
+)
 }

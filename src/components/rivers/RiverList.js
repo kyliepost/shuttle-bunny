@@ -36,4 +36,3 @@ export const RiverList = () => {
     )
 }
 
-{/* <img src="${riverObject.imageURL}" class="river__image">{riverObject.imageURL}</img> */}
