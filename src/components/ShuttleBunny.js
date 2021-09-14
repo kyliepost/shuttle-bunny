@@ -10,7 +10,7 @@ export const ShuttleBunny = () => (
   <>
     <Route
       render={() => {
-        if (localStorage.getItem("shuttle_bunny")) {
+        if (localStorage.getItem("shuttle_user")) {
           return (
             <>
               <NavBar />
