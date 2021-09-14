@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Rivers.css"
 
 export const RiverList = () => {
     const [rivers, setRivers] = useState([])
@@ -22,8 +23,8 @@ export const RiverList = () => {
                     {
                         rivers.map(
                             (riverObject) => {
-                                return <p key={`river--${riverObject.id}`}>{riverObject.name}
-                                    
+                                return <p className="riverDetails" key={`river--${riverObject.id}`}>{riverObject.name}
+                                     <img src={riverObject.imageURL} class="river__image"/>
                                 </p>
 
                             }
