@@ -5,6 +5,7 @@ import "./Login.css"
 
 export const Login = () => {
     const [email, set] = useState("")
+    const [password, setPass] = useState("")
     const existDialog = useRef()
     const history = useHistory()
 
@@ -13,10 +14,16 @@ export const Login = () => {
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
+    const anotherUserCheck = () => {
+        return fetch(`http://localhost:8088/users?password=${password}`)
+            .then(res => res.json())
+            .then(user => user.length ? user[0] : false)
+    }
 
     const handleLogin = (e) => {
         e.preventDefault()
         existingUserCheck()
+        anotherUserCheck()
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("shuttle_user", exists.id)
@@ -44,6 +51,14 @@ export const Login = () => {
                             onChange={evt => set(evt.target.value)}
                             className="form-control"
                             placeholder="Email address"
+                            required autoFocus />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="inputPassword"> Password </label>
+                        <input type="password"
+                            onChange={evt => setPass(evt.target.value)}
+                            className="form-control"
+                            placeholder="Password"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
