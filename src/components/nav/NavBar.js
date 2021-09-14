@@ -8,7 +8,14 @@ return (
         
         <ul>
         <li className="navbar__item active">
-                <Link className="navbar__link" to="/">Users</Link>
+                <Link className="navbar__link" to="#"
+                onClick={
+                    () => {
+                        localStorage.removeItem("shuttle_user")
+                    }
+                }>
+                    Logout
+                </Link>
             </li>
         </ul>
     </>
