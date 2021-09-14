@@ -1,0 +1,12 @@
+
+.riverDetails {
+    display: flex;
+   border: dotted blueviolet;
+   width: 600px;
+   
+}
+
+img {
+    height: 300px;
+    width: 400px;
+}
