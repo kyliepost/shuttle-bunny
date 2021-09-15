@@ -13,9 +13,15 @@ export const Register = (props) => {
             .then(res => res.json())
             .then(user => !!user.length)
     }
+    const anotherUserCheck = () => {
+        return fetch(`http://localhost:8088/users?password=${user.password}`)
+            .then(res => res.json())
+            .then(user => !!user.length)
+    }
     const handleRegister = (e) => {
         e.preventDefault()
         existingUserCheck()
+        anotherUserCheck()
             .then((userExists) => {
                 if (!userExists) {
                     fetch("http://localhost:8088/users", {
@@ -28,7 +34,7 @@ export const Register = (props) => {
                         .then(res => res.json())
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
-                                localStorage.setItem("shuttle_bunny", createdUser.id)
+                                localStorage.setItem("shuttle_user", createdUser.id)
                                 history.push("/")
                             }
                         })
@@ -65,6 +71,10 @@ export const Register = (props) => {
                 <fieldset>
                     <label htmlFor="email"> Email address </label>
                     <input onChange={updateUser} type="email" id="email" className="form-control" placeholder="Email address" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="email"> Password </label>
+                    <input onChange={updateUser} type="password" id="password" className="form-control" placeholder="password" required />
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Register </button>

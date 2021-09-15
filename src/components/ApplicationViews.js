@@ -8,11 +8,11 @@ import { RiverList } from "./rivers/RiverList";
 export const ApplicationViews = () => {
   return (
     <>
-    <Route exact path="/rivers">
+    <Route exact path="/">
     <RiverList />
     </Route>
 
-    <Route exact path="/rivers/chat">
+    <Route exact path="/chat">
       <RiverChat />
     </Route>
       
