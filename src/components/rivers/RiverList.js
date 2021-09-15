@@ -30,7 +30,7 @@ export const RiverList = () => {
                             (riverObject) => {
                                 return <p className="riverDetails" key={`river--${riverObject.id}`}>{riverObject.name}
                                      <img src={riverObject.imageURL}/>
-                                     <button onClick={() => history.push("/rivers/chat")}>
+                                     <button onClick={() => history.push("/chat")}>
                 Go to this chat forum
             </button>
                                 </p>

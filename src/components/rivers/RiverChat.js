@@ -8,7 +8,7 @@ export const RiverChat = () => {
         <div className="riverCard">
             {
                 <p>
-                    <button onClick={() => history.push("/rivers/chat")}>
+                    <button onClick={() => history.push("/chat")}>
                         Go to this chat forum
                     </button>
                 </p>
