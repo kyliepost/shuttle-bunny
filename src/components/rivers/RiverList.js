@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Rivers.css"
+
+// , useHistory
 
 export const RiverList = () => {
     const [rivers, setRivers] = useState([])
-    const history = useHistory()
+    // const history = useHistory()
 
     useEffect(
         () => {
@@ -28,11 +30,12 @@ export const RiverList = () => {
                     {
                         rivers.map(
                             (riverObject) => {
-                                return <p className="riverDetails" key={`river--${riverObject.id}`}>{riverObject.name}
+                                return <p className="riverDetails" key={`river--${riverObject.id}`}>
+                                    <Link to={`/posts/${riverObject.id}/chat`}>{riverObject.name}</Link>
                                      <img src={riverObject.imageURL}/>
-                                     <button onClick={() => history.push("/chat")}>
+                                     {/* <button onClick={() => history.push("/chat")}>
                 Go to this chat forum
-            </button>
+            </button> */}
                                 </p>
 
                             }
