@@ -1,28 +1,35 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 
 export const RiverChat = () => {
     const [post, setPost] = useState({}) // State variable for current ticket object
-    const [river] = useState() 
+    // const [river] = useState() 
+    const history = useHistory()
       
-    const { postId } = useParams()  // Variable storing the route parameter
+    const { riverId } = useParams()  // Variable storing the route parameter
+    const { postId } = useParams()
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/posts/${postId}/chat?_expand=riverId`)
+            fetch(`http://localhost:8088/posts/${riverId}?_expand=river&_expand=user`)
                 .then(res => res.json())
-                .then(setPost)
+                .then((data) => {
+                    setPost(data)
+                })
         },
-        [ postId ]  // Above function runs when the value of ticketId change
+        [ riverId ]  // Above function runs when the value of ticketId change
     )
 
     return (
         <>
-        <h2>River Chat</h2>
+        <h2>River {riverId} Chat</h2>
+        <button onClick={() => history.push(`/posts/${riverId}/create`)}>
+                Create Post
+            </button>
             <section className="post">
-                {/* <h3 className="post__description">{river.name}</h3> */}
+                <h3 className="post__description">{riverId.name}</h3>
                 <h3 className="post__description">{post.description}</h3>
-                {/* <div className="post__user">Submitted by {post.user?.name}</div> */}
+                <div className="post__user">Submitted by {post.user?.name}</div>
                
             </section>
         </>
