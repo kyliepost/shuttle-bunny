@@ -22,8 +22,8 @@ export const RiverList = () => {
     return (
         <>
 
-        <h1>Rivers</h1>
-        
+            <h1>Rivers</h1>
+
 
             <article className="river">
                 <div className="riverCard">
@@ -32,10 +32,8 @@ export const RiverList = () => {
                             (riverObject) => {
                                 return <p className="riverDetails" key={`river--${riverObject.id}`}>
                                     <Link to={`/posts/${riverObject.id}`}>{riverObject.name}</Link>
-                                     <img src={riverObject.imageURL}/>
-                                     {/* <button onClick={() => history.push("/chat")}>
-                Go to this chat forum
-            </button> */}
+                                    <img src={riverObject.imageURL} />
+                                 
                                 </p>
 
                             }

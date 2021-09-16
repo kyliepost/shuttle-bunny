@@ -1,6 +1,7 @@
 import React from "react"
 import { Route } from "react-router";
 import { RiverChat } from "./rivers/RiverChat";
+import { ChatForm } from "./rivers/RiverChatForm";
 import { RiverList } from "./rivers/RiverList";
 
 
@@ -19,7 +20,7 @@ export const ApplicationViews = () => {
 </Route>
 
 <Route exact path="/posts/:riverId(\d+)/create">
-    <RiverChat />
+    <ChatForm />
 </Route>
 
       

@@ -16,7 +16,7 @@ export const ShuttleBunny = () => (
               <NavBar />
               <h1>Shuttle Bunny </h1>
               <ApplicationViews />
-              
+
             </>
           );
         } else {
