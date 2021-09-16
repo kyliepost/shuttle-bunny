@@ -6,6 +6,7 @@ export const ChatForm = () => {
         description: ""
     })
     const history = useHistory()
+    const { riverId } = useParams()
 
 
     const savePost = (evt) => {
@@ -27,9 +28,9 @@ export const ChatForm = () => {
             body: JSON.stringify(newTicket)
         }
 
-        return fetch("http://localhost:8088/posts", fetchOption)
+        return fetch(`http://localhost:8088/posts`, fetchOption)
             .then(() => {
-                history.push("/posts")
+                history.push(`/posts/${riverId}`)
             })
     }
 
