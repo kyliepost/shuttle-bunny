@@ -10,20 +10,20 @@ export const ApplicationViews = () => {
   return (
     <>
 
-    <Route exact path="/">
-    <RiverList />
-    </Route>
+      <Route exact path="/">
+        <RiverList />
+      </Route>
 
-    
-    <Route exact path="/posts/:riverId(\d+)">
-    <RiverChat />
-</Route>
 
-<Route exact path="/posts/:riverId(\d+)/create">
-    <ChatForm />
-</Route>
+      <Route exact path="/posts/:riverId(\d+)">
+        <RiverChat />
+      </Route>
 
-      
+      <Route exact path="/posts/:riverId(\d+)/create">
+        <ChatForm />
+      </Route>
+
+
     </>
 
   )

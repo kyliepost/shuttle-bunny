@@ -2,22 +2,43 @@ import React, { useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 
 export const RiverChat = () => {
-    const [post, setPost] = useState({}) // State variable for current ticket object
+    const [posts ,setPost] = useState([]) 
+    // const [posts] = useState([])
     // const [river] = useState() 
     const history = useHistory()
 
-    const { riverId } = useParams()  // Variable storing the route parameter
+    const { riverId } = useParams()  
     const { postId } = useParams()
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/posts/${riverId}?_expand=river&_expand=user`)
+            fetch(`http://localhost:8088/posts/?riverId=${riverId}&_expand=river&_expand=user`)
                 .then(res => res.json())
                 .then((data) => {
                     setPost(data)
                 })
         },
-        [riverId]  // Above function runs when the value of ticketId change
+        [riverId]  
+    )
+    return (
+        <>
+
+        <h2>River Chat</h2>
+            <div>
+                <button onClick={() => history.push(`/posts/${riverId}/create`)}>Create Post</button>
+            </div>
+            {
+                posts.map(
+                    (post) => {
+                        return <div key={`post--${post.id}`}>
+                            <p><h3>{post.description}</h3> Submitted
+                                by {post.user.name}
+                            </p>
+                        </div>
+                    }
+                )
+            }
+        </>
     )
 
     return (
@@ -28,12 +49,17 @@ export const RiverChat = () => {
                 Create Post
             </button>
 
-            <section className="post">
-                <h3 className="post__description">{riverId.name}</h3>
-                <h3 className="post__description">{post.description}</h3>
-                <div className="post__user">Submitted by {post.user?.name}</div>
-
-            </section>
+            {
+                posts.map(
+                    (post) => {
+                        return <div key={`post--${post.id}`}>
+                            <p>{post.description} Submitted
+                                by {post.user.name} 
+                            </p>
+                        </div>
+                    }
+                )
+            }
         </>
     )
 }
