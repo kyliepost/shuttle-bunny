@@ -8,7 +8,10 @@ return (
     <>
         
         <ul className="navbar">
-        <li className="navbar__item active">
+        <li className="navbar__item">
+                <Link className="navbar__link" to="/">Home</Link>
+            </li>
+        <li className="navbar__item">
                 <Link className="navbar__link" to="#"
                 onClick={
                     () => {
@@ -18,6 +21,7 @@ return (
                     Logout
                 </Link>
             </li>
+            
         </ul>
     </>
 
