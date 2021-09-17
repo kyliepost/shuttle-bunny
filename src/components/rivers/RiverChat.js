@@ -31,30 +31,10 @@ export const RiverChat = () => {
                 posts.map(
                     (post) => {
                         return <div key={`post--${post.id}`}>
-                            <p><h3>{post.description}</h3> Submitted
+                            <p>
+                                <h3> {post.description} </h3>
+                                 Submitted
                                 by {post.user.name}
-                            </p>
-                        </div>
-                    }
-                )
-            }
-        </>
-    )
-
-    return (
-        <>
-            <h2>River {riverId} Chat</h2>
-
-            <button onClick={() => history.push(`/posts/${riverId}/create`)}>
-                Create Post
-            </button>
-
-            {
-                posts.map(
-                    (post) => {
-                        return <div key={`post--${post.id}`}>
-                            <p>{post.description} Submitted
-                                by {post.user.name} 
                             </p>
                         </div>
                     }

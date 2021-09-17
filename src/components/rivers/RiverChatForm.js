@@ -15,7 +15,7 @@ export const ChatForm = () => {
         const newTicket = {
             description: post.description,
             userId: parseInt(localStorage.getItem("shuttle_user")),
-            riverId: 1,
+            riverId: parseInt(riverId),
             timestamp: 1634687829221
         }
 
