@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { useHistory, useParams } from "react-router";
 
-export const ChatForm = () => {
-    const [post, updatePost] = useState({
+export const CommentForm = () => {
+    const [comment, updateComment] = useState({
         description: ""
     })
     const history = useHistory()
-    const { riverId } = useParams()
+    const { postId } = useParams()
 
 
-    const savePost = (evt) => {
+    const saveComment = (evt) => {
         evt.preventDefault()
 
-        const newPost = {
-            description: post.description,
+        const newComment = {
+            description: comment.description,
             userId: parseInt(localStorage.getItem("shuttle_user")),
-            riverId: parseInt(riverId)
+            riverId: parseInt(postId)
         }
 
 
@@ -24,27 +24,27 @@ export const ChatForm = () => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newPost)
+            body: JSON.stringify(newComment)
         }
 
-        return fetch(`http://localhost:8088/posts`, fetchOption)
+        return fetch(`http://localhost:8088/comments`, fetchOption)
             .then(() => {
-                history.push(`/posts/${riverId}`)
+                history.push(`/comments/${postId}`)
             })
     }
 
     return (
         <>
             <form>
-                <h2>Create Post</h2>
+                <h2>Create Comment</h2>
                 <fieldset>
                     <label htmlFor="inputDescription"> Description </label>
                     <input
                         onChange={
                             (evt) => {
-                                const copy = { ...post }
+                                const copy = { ...comment }
                                 copy.description = evt.target.value
-                                updatePost(copy)
+                                updateComment(copy)
                             }
                         }
                         required autoFocus
@@ -54,15 +54,11 @@ export const ChatForm = () => {
                     />
                 </fieldset>
                 <fieldset>
-                    <button onClick={savePost} className="btn btn-primary">
-                        Submit Post
+                    <button onClick={saveComment} className="btn btn-primary">
+                        Submit Comment
                     </button>
                 </fieldset>
-                <fieldset>
-                    <button type="submit">
-                        Cancel
-                    </button>
-                </fieldset>
+               
             </form>
         </>
     )

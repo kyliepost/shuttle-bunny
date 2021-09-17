@@ -10,3 +10,7 @@ img {
     height: 300px;
     width: 400px;
 }
+
+.chatPost {
+    border: dotted blueviolet;
+}
