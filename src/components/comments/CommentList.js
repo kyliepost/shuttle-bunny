@@ -44,11 +44,14 @@ export const CommentList = () => {
                                 by {comment.user}:
                                 {comment.description}
                             </p>
+                            <button className="btn btn-lg btn-outline-danger ml-4">
+                                Delete
+                            </button>
                         </div>
                     }
                 )
             }
-    
+
         </>
     )
 }

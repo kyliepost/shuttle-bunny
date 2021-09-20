@@ -37,6 +37,9 @@ export const RiverChat = () => {
                                 by {post.user.name}
                               
                             </p>
+                             <button className="btn btn-lg btn-outline-danger ml-4">
+              Delete
+            </button>
                         </div>
                     }
                 )
