@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react"
-import { useParams, useHistory } from "react-router-dom"
+import { useParams, useHistory, Link } from "react-router-dom"
+import "./Rivers.css"
 
 export const RiverChat = () => {
     const [posts ,setPost] = useState([]) 
-    // const [posts] = useState([])
-    // const [river] = useState() 
-    const history = useHistory()
+    const [user] = useState([]) 
 
+    const history = useHistory()
     const { riverId } = useParams()  
-    const { postId } = useParams()
+
 
     useEffect(
         () => {
@@ -25,16 +25,17 @@ export const RiverChat = () => {
 
         <h2>River Chat</h2>
             <div>
-                <button onClick={() => history.push(`/posts/${riverId}/create`)}>Create Post</button>
+                <button onClick={() => history.push(`/${riverId}/create`)}>Create Post</button>
             </div>
             {
                 posts.map(
                     (post) => {
-                        return <div key={`post--${post.id}`}>
+                        return <div className="chatPost" key={`post--${post.id}`}>
+                              <Link to={`/${riverId}/${post.id}/chat`}><h3>{post.description}</h3></Link>
                             <p>
-                                <h3> {post.description} </h3>
-                                 Submitted
+                            Submitted
                                 by {post.user.name}
+                              
                             </p>
                         </div>
                     }
