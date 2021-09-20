@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react"
-import { useParams, useHistory } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 export const CommentList = () => {
     const [comments, setComment] = useState([])
     const [post, setPost] = useState([])
 
 
-
     // const history = useHistory()
     const { postId } = useParams()
     const { riverId } = useParams()
 
-
+    const allComments = () => {
+    }
 
     useEffect(
         () => {
@@ -27,10 +27,12 @@ export const CommentList = () => {
         [postId]
     )
 
+
     return (
         <>
 
-           <h2>{post.description}</h2> 
+            <h2>{post.description}</h2>
+
 
             {
                 comments.map(
@@ -38,16 +40,16 @@ export const CommentList = () => {
                         return <div className="chatComment" key={`comment--${comment.id}`}>
 
                             <p>
-
                                 Submitted
-                                by {post.comment.user.name}:
-                                 {comment.description}
+                                by {comment.user}:
+                                {comment.description}
                             </p>
                         </div>
                     }
                 )
             }
-
+    
         </>
     )
 }
+
