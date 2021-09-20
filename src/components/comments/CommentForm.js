@@ -37,11 +37,10 @@ export const CommentForm = () => {
 
     return (
         <>
-    
 
             <form>
-            <fieldset>
-                    <label htmlFor="inputDescription"> Description: </label>
+                <fieldset>
+                    <label htmlFor="inputDescription"> Comment: </label>
                     <input
                         onChange={
                             (evt) => {
@@ -53,17 +52,17 @@ export const CommentForm = () => {
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="description"
+                        placeholder="comment text"
                     />
                 </fieldset>
-               
-               
+
+
                 <fieldset>
                     <button onClick={saveComment} className="btn btn-primary">
                         Submit Comment
                     </button>
                 </fieldset>
-               
+
             </form>
         </>
     )

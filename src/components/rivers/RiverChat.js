@@ -35,7 +35,7 @@ export const RiverChat = () => {
                             <p>
                             Submitted
                                 by {post.user.name}
-                                {/* <h3> {post.description} </h3> */}
+                              
                             </p>
                         </div>
                     }
