@@ -29,10 +29,10 @@ export const RiverList = () => {
                 <div className="riverCard">
                     {
                         rivers.map(
-                            (riverObject) => {
-                                return <p className="riverDetails" key={`river--${riverObject.id}`}>
-                                    <Link to={`/posts/${riverObject.id}`}>{riverObject.name}</Link>
-                                    <img src={riverObject.imageURL} />
+                            (river) => {
+                                return <p className="riverDetails" key={`river--${river.id}`}>
+                                    <Link to={`/${river.id}`}>{river.name}</Link>
+                                    <img src={river.imageURL} />
                                  
                                 </p>
 

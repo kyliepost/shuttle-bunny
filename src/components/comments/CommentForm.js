@@ -7,6 +7,8 @@ export const CommentForm = () => {
     })
     const history = useHistory()
     const { postId } = useParams()
+    const { riverId } = useParams()
+
 
 
     const saveComment = (evt) => {
@@ -27,18 +29,19 @@ export const CommentForm = () => {
             body: JSON.stringify(newComment)
         }
 
-        return fetch(`http://localhost:8088/comments`, fetchOption)
+        return fetch(`http://localhost:8088/comments?_expand=post`, fetchOption)
             .then(() => {
-                history.push(`/comments/${postId}`)
+                history.push(`/${riverId}`)
             })
     }
 
     return (
         <>
+    
+
             <form>
-                <h2>Create Comment</h2>
-                <fieldset>
-                    <label htmlFor="inputDescription"> Description </label>
+            <fieldset>
+                    <label htmlFor="inputDescription"> Description: </label>
                     <input
                         onChange={
                             (evt) => {
@@ -53,6 +56,8 @@ export const CommentForm = () => {
                         placeholder="description"
                     />
                 </fieldset>
+               
+               
                 <fieldset>
                     <button onClick={saveComment} className="btn btn-primary">
                         Submit Comment

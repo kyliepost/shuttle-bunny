@@ -17,25 +17,20 @@ export const ApplicationViews = () => {
       </Route>
 
 
-      <Route exact path="/posts/:riverId(\d+)">
+      <Route exact path="/:riverId(\d+)">
         <RiverChat />
       </Route>
 
-      <Route exact path="/posts/:riverId(\d+)/create">
+      <Route exact path="/:riverId(\d+)/create">
         <ChatForm />
       </Route>
 
-      <Route exact path="/posts/:riverId(\d+)/comments/:postId(\d+)">
-        <RiverChat />
-      </Route>
 
-      <Route exact path="/posts/:postId(\d+)">
+      <Route exact path="/:riverId(\d+)/:postId(\d+)/chat">
         <CommentList />
-      </Route>
-
-      <Route exact path="/comments/:postId(\d+)">
         <CommentForm />
       </Route>
+
 
 
     </>

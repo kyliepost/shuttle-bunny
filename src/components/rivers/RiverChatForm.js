@@ -7,6 +7,8 @@ export const ChatForm = () => {
     })
     const history = useHistory()
     const { riverId } = useParams()
+    const { postId } = useParams()
+
 
 
     const savePost = (evt) => {
@@ -29,7 +31,8 @@ export const ChatForm = () => {
 
         return fetch(`http://localhost:8088/posts`, fetchOption)
             .then(() => {
-                history.push(`/posts/${riverId}`)
+                history.push(`/${riverId}`)
+                
             })
     }
 

@@ -23,16 +23,15 @@ export const CommentList = () => {
         <>
 
         <h2>River Chat</h2>
-            <div>
-                <button onClick={() => history.push(`/posts/${riverId}/comments/${postId}`)}>Create Comment</button>
-            </div>
+     
+         
             {
                 comments.map(
                     (comment) => {
                         return <div className="chatComment" key={`comment--${comment.id}`}>
 
                             <p>
-                                
+                              
                             Submitted
                                 by {comment.user.name}:
                                 <h3> {comment.description} </h3>

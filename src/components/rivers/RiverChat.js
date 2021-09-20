@@ -25,13 +25,13 @@ export const RiverChat = () => {
 
         <h2>River Chat</h2>
             <div>
-                <button onClick={() => history.push(`/posts/${riverId}/create`)}>Create Post</button>
+                <button onClick={() => history.push(`/${riverId}/create`)}>Create Post</button>
             </div>
             {
                 posts.map(
                     (post) => {
                         return <div className="chatPost" key={`post--${post.id}`}>
-                              <Link to={`/posts/${post.id}`}><h3>{post.description}</h3></Link>
+                              <Link to={`/${riverId}/${post.id}/chat`}><h3>{post.description}</h3></Link>
                             <p>
                             Submitted
                                 by {post.user.name}
