@@ -19,7 +19,7 @@ export const CommentForm = () => {
         const newComment = {
             description: comment.description,
             userId: parseInt(localStorage.getItem("shuttle_user")),
-            riverId: parseInt(postId)
+            postId: parseInt(postId)
         }
 
 

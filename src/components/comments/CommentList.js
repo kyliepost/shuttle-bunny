@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { CommentContext } from "./CommentProvider"
 
 export const CommentList = () => {
     const [comments, setComment] = useState([])
@@ -10,8 +11,10 @@ export const CommentList = () => {
     const { postId } = useParams()
     const { riverId } = useParams()
 
-    const allComments = () => {
-    }
+    // useEffect(() => {
+    //     getComments()
+    // }, [])
+ 
 
     useEffect(
         () => {
