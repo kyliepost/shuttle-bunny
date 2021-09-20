@@ -8,6 +8,8 @@ export const CommentForm = () => {
     const history = useHistory()
     const { postId } = useParams()
     const { riverId } = useParams()
+    const { commentId } = useParams()
+
 
 
 
@@ -61,6 +63,11 @@ export const CommentForm = () => {
                     <button onClick={saveComment} className="btn btn-primary">
                         Submit Comment
                     </button>
+                </fieldset>
+                <fieldset>
+                {commentId ? <></> : <button className="btn btn-primary" onClick={() => {
+                    history.push(`/${riverId}/${postId}/chat`)
+                }}>Cancel</button>}
                 </fieldset>
 
             </form>
