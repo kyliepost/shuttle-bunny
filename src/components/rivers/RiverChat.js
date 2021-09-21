@@ -4,8 +4,6 @@ import "./Rivers.css"
 
 export const RiverChat = () => {
     const [posts ,setPost] = useState([]) 
-    const [user] = useState([]) 
-
     const history = useHistory()
     const { riverId } = useParams()  
 
