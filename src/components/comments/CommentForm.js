@@ -33,7 +33,7 @@ export const CommentForm = () => {
 
         return fetch(`http://localhost:8088/comments?_expand=post`, fetchOption)
             .then(() => {
-                history.push(`/${riverId}/${postId}`)
+                history.push(`/${riverId}/${postId}/chat`)
             })
     }
 

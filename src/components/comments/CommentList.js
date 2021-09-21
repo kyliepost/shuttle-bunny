@@ -1,27 +1,30 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useHistory } from "react"
 import { useParams } from "react-router-dom"
-import { CommentContext } from "./CommentProvider"
 
 export const CommentList = () => {
-    const [comments, setComment] = useState([])
+
+    const [comments, setComments] = useState([])
     const [post, setPost] = useState([])
-
-
-    // const history = useHistory()
+    // const [comment] = useState([])
     const { postId } = useParams()
-    const { riverId } = useParams()
+    // const { riverId } = useParams()
 
-    // useEffect(() => {
-    //     getComments()
-    // }, [])
- 
+
+
+    const deleteComment = (id) => {
+        fetch(`http://localhost:8088/comments/${id}`, {
+            method: "DELETE"
+        })
+    }
+
+   
 
     useEffect(
         () => {
             fetch(`http://localhost:8088/posts/${postId}?_embed=comments&_expand=user&_expand=river`)
                 .then(res => res.json())
                 .then((data) => {
-                    setComment(data.comments)
+                    setComments(data.comments)
                     setPost(data)
                     // setRiver(data.river)
                     // SetUser(data.river)
@@ -37,6 +40,7 @@ export const CommentList = () => {
             <h2>{post.description}</h2>
 
 
+
             {
                 comments.map(
                     (comment) => {
@@ -44,12 +48,12 @@ export const CommentList = () => {
 
                             <p>
                                 Submitted
-                                by {comment.user}:
+                                by {comment.userId}:
                                 {comment.description}
                             </p>
-                            <button className="btn btn-lg btn-outline-danger ml-4">
-                                Delete
-                            </button>
+                            <button onClick={() => {
+                                deleteComment(comment.id)
+                            }}>Delete</button>
                         </div>
                     }
                 )
