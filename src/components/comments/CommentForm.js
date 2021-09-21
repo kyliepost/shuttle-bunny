@@ -8,6 +8,8 @@ export const CommentForm = () => {
     const history = useHistory()
     const { postId } = useParams()
     const { riverId } = useParams()
+    const { commentId } = useParams()
+
 
 
 
@@ -17,7 +19,7 @@ export const CommentForm = () => {
         const newComment = {
             description: comment.description,
             userId: parseInt(localStorage.getItem("shuttle_user")),
-            riverId: parseInt(postId)
+            postId: parseInt(postId)
         }
 
 
@@ -31,7 +33,10 @@ export const CommentForm = () => {
 
         return fetch(`http://localhost:8088/comments?_expand=post`, fetchOption)
             .then(() => {
-                history.push(`/${riverId}/${postId}`)
+                history.push(`/${riverId}/${postId}/chat`)
+            })
+            .then(() => {
+                window.location.reload(false);
             })
     }
 
@@ -61,6 +66,11 @@ export const CommentForm = () => {
                     <button onClick={saveComment} className="btn btn-primary">
                         Submit Comment
                     </button>
+                </fieldset>
+                <fieldset>
+                {commentId ? <></> : <button className="btn btn-primary" onClick={() => {
+                    history.push(`/${riverId}/${postId}/chat`)
+                }}>Cancel</button>}
                 </fieldset>
 
             </form>

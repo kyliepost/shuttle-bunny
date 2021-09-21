@@ -9,6 +9,14 @@ export const RiverChat = () => {
     const history = useHistory()
     const { riverId } = useParams()  
 
+    const deletePost = (id) => {
+        fetch(`http://localhost:8088/posts/${id}`, {
+            method: "DELETE"
+        })
+        .then(() => {
+            window.location.reload(false);
+        })
+    }
 
     useEffect(
         () => {
@@ -37,7 +45,11 @@ export const RiverChat = () => {
                                 by {post.user.name}
                               
                             </p>
+                            <button onClick={() => {
+                                deletePost(post.id)
+                            }}>Delete</button>
                         </div>
+                        
                     }
                 )
             }

@@ -62,9 +62,9 @@ export const ChatForm = () => {
                     </button>
                 </fieldset>
                 <fieldset>
-                    <button type="submit">
-                        Cancel
-                    </button>
+                {postId ? <></> : <button className="btn btn-primary" onClick={() => {
+                    history.push(`/${riverId}`)
+                }}>Cancel</button>}
                 </fieldset>
             </form>
         </>
