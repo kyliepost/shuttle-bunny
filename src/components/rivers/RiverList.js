@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Rivers.css"
 
-// , useHistory
 
 export const RiverList = () => {
     const [rivers, setRivers] = useState([])
-    // const history = useHistory()
+
 
     useEffect(
         () => {
