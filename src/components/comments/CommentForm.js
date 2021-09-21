@@ -35,6 +35,9 @@ export const CommentForm = () => {
             .then(() => {
                 history.push(`/${riverId}/${postId}/chat`)
             })
+            .then(() => {
+                window.location.reload(false);
+            })
     }
 
     return (

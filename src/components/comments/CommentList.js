@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useHistory } from "react"
+import { findRenderedDOMComponentWithTag } from "react-dom/test-utils"
 import { useParams } from "react-router-dom"
 
 export const CommentList = () => {
@@ -9,13 +10,16 @@ export const CommentList = () => {
     const { postId } = useParams()
     // const { riverId } = useParams()
 
-
-
+ 
     const deleteComment = (id) => {
-        fetch(`http://localhost:8088/comments/${id}`, {
+        fetch(`http://localhost:8088/comments/${id} `, {
             method: "DELETE"
         })
+        .then(() => {
+            window.location.reload(false);
+        })
     }
+    
 
    
 

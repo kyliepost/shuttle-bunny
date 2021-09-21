@@ -13,6 +13,9 @@ export const RiverChat = () => {
         fetch(`http://localhost:8088/posts/${id}`, {
             method: "DELETE"
         })
+        .then(() => {
+            window.location.reload(false);
+        })
     }
 
     useEffect(
