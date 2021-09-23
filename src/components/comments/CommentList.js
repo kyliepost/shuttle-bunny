@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom"
 export const CommentList = () => {
     const [comments, setComments] = useState([])
     const [user, setUser] = useState([])
+    const [users, setUsers] = useState([])
     const [post, setPost] = useState([])
     const { postId } = useParams()
-    const { userId } = useParams()
+    const userId = parseInt(localStorage.getItem("shuttle_user"))
+
 
 
     useEffect(
@@ -44,6 +46,20 @@ export const CommentList = () => {
         [userId]
     )
       
+    const usersComment = () => {
+        fetch(`http://localhost:8088/comments?userId=${userId}&_expand=user`)
+        .then(res => res.json())
+                .then((data) => {
+                    setUsers(data)
+    })
+}
+
+useEffect(
+    () => {
+            usersComment()
+    },
+    []
+)
 
     return (
         <>
@@ -62,9 +78,13 @@ export const CommentList = () => {
                                 by {comment.user.name}:
                                 {comment.description}
                             </p>
+                            { (comment.user.id === userId)
+                            ?
                             <button onClick={() => {
                                 deleteComment(comment.id)
                             }}>Delete</button>
+                            : null
+                        }
                         </div>
                     }
                 )

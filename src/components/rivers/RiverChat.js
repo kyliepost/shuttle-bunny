@@ -4,11 +4,14 @@ import "./Rivers.css"
 
 export const RiverChat = () => {
     const [posts ,setPost] = useState([]) 
+    const [user ,setUser] = useState([]) 
     const history = useHistory()
     const { riverId } = useParams()  
+    const userId = parseInt(localStorage.getItem("shuttle_user"))
 
-    const deletePost = (id) => {
-        fetch(`http://localhost:8088/posts/${id}`, {
+
+    const deletePost = (userId) => {
+        fetch(`http://localhost:8088/posts/${userId}`, {
             method: "DELETE"
         })
         .then(() => {
@@ -26,6 +29,22 @@ export const RiverChat = () => {
         },
         [riverId]  
     )
+    
+
+    const usersPost = () => {
+        fetch(`http://localhost:8088/posts?userId=${userId}&_expand=user`)
+        .then(res => res.json())
+                .then((data) => {
+                    setUser(data)
+    })
+}
+
+useEffect(
+    () => {
+            usersPost()
+    },
+    []
+)
     return (
         <>
 
@@ -43,9 +62,13 @@ export const RiverChat = () => {
                                 by {post.user.name}
                               
                             </p>
+                            { (post.user.id === userId)
+                            ?
                             <button onClick={() => {
                                 deletePost(post.id)
                             }}>Delete</button>
+                            : null
+                        }
                         </div>
                         
                     }
