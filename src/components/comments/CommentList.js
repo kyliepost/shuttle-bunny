@@ -65,7 +65,7 @@ useEffect(
     return (
         <>
 
-            <h2>{post.description}</h2>
+            <h2 className="post">{post.description}</h2>
 
 
 
@@ -76,7 +76,7 @@ useEffect(
 
                             <p>
                                 Submitted
-                                by {comment.user.name}:
+                                by {comment.user.name}: {""}
                                 {comment.description}
                             </p>
                             { (comment.user.id === userId)

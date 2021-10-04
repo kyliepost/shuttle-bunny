@@ -56,7 +56,7 @@ useEffect(
                 posts.map(
                     (post) => {
                         return <div className="chatPost" key={`post--${post.id}`}>
-                              <Link to={`/${riverId}/${post.id}/chat`}><h3>{post.description}</h3></Link>
+                              <Link to={`/${riverId}/${post.id}/chat`}><h3 className="post">{post.description}</h3></Link>
                             <p>
                             Submitted
                                 by {post.user.name}

@@ -15,9 +15,20 @@
     align-items: center;
 }
 
+.chatPost {
+    margin-bottom: 65px;
+}
 img {
     height: 300px;
     width: 400px;
+}
+
+h2 {
+    margin-top: 80px;
+}
+
+.post {
+    margin-top: 40px;
 }
 
 /* .chatPost {

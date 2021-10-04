@@ -2,3 +2,11 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+input.form-control {
+    width: 600px;
+}
+
+.post {
+    margin-top: 75px;
+}
