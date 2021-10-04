@@ -1,12 +1,17 @@
 .btn {
     margin-top: 15px;
     margin-bottom: 15px;
+    margin-left: 100px;
 }
 
 input.form-control {
     width: 600px;
+    margin-left: 100px;
 }
 
 .post {
     margin-top: 75px;
+}
+button.deleteButton {
+    margin-left: 75px;
 }

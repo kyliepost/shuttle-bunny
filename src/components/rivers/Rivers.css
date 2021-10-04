@@ -25,10 +25,12 @@ img {
 
 h2 {
     margin-top: 80px;
+    margin-left: 30px;
 }
 
 .post {
     margin-top: 40px;
+    margin-left: 70px;
 }
 
 /* .chatPost {
@@ -38,11 +40,16 @@ h2 {
 .btn-post {
     margin-top: 30px;
     margin-bottom: 30px;
+    margin-left: 50px;
 }
 
 .chatComment {
     margin-top: 25px;
     margin-bottom: 25px;
+}
+
+p {
+    margin-left: 80px;
 }
 
 
