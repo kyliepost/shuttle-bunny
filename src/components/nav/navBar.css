@@ -2,6 +2,7 @@ ul.navbar {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    width: 1820px;
 }
 
 .navbar__item {
