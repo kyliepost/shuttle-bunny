@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useHistory } from "react"
 import { useParams } from "react-router-dom"
+import "./Comments.css"
 
 export const CommentList = () => {
     const [comments, setComments] = useState([])
@@ -80,7 +81,7 @@ useEffect(
                             </p>
                             { (comment.user.id === userId)
                             ?
-                            <button onClick={() => {
+                            <button className="deleteButton" onClick={() => {
                                 deleteComment(comment.id)
                             }}>Delete</button>
                             : null

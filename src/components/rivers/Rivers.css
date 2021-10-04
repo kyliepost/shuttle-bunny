@@ -1,9 +1,18 @@
+.riverCard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 150px;
+    margin-right: 150px;
+}
 
 .riverDetails {
     display: flex;
-   border: dotted blueviolet;
-   width: 600px;
-   
+    /* border: solid black; */
+    width: 600px;
+    flex-direction: column;
+    align-items: center;
 }
 
 img {
@@ -11,6 +20,25 @@ img {
     width: 400px;
 }
 
-.chatPost {
-    border: dotted blueviolet;
+/* .chatPost {
+    border: dotted black;
+} */
+
+.btn-post {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
+
+.chatComment {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+/* .deleteButton {
+    background-color: darkorange;
+}
+
+.formButtons {
+    background-color: darkorange;
+} */

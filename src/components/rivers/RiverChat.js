@@ -50,7 +50,7 @@ useEffect(
 
         <h2>River Chat</h2>
             <div>
-                <button onClick={() => history.push(`/${riverId}/create`)}>Create Post</button>
+                <button className="btn-post" onClick={() => history.push(`/${riverId}/create`)}>Create Post</button>
             </div>
             {
                 posts.map(
@@ -64,7 +64,7 @@ useEffect(
                             </p>
                             { (post.user.id === userId)
                             ?
-                            <button onClick={() => {
+                            <button className="deleteButton" onClick={() => {
                                 deletePost(post.id)
                             }}>Delete</button>
                             : null

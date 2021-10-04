@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory, useParams } from "react-router";
+import "./Comments.css"
 
 export const CommentForm = () => {
     const [comment, updateComment] = useState({
@@ -45,7 +46,7 @@ export const CommentForm = () => {
 
             <form>
                 <fieldset>
-                    <label htmlFor="inputDescription"> Comment: </label>
+                    <label htmlFor="inputDescription"></label>
                     <input
                         onChange={
                             (evt) => {
@@ -62,13 +63,13 @@ export const CommentForm = () => {
                 </fieldset>
 
 
-                <fieldset>
-                    <button onClick={saveComment} className="btn btn-primary">
+                <fieldset className="btn">
+                    <button className="formButtons" onClick={saveComment} >
                         Submit Comment
                     </button>
                 </fieldset>
-                <fieldset>
-                {commentId ? <></> : <button className="btn btn-primary" onClick={() => {
+                <fieldset className="btn">
+                {commentId ? <></> : <button className="formButtons" onClick={() => {
                     history.push(`/${riverId}/${postId}/chat`)
                 }}>Cancel</button>}
                 </fieldset>

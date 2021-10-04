@@ -21,7 +21,7 @@ export const RiverList = () => {
     return (
         <>
 
-            <h1>Rivers</h1>
+            <h2>Rivers</h2>
 
 
             <article className="river">

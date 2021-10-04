@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ShuttleBunny } from './components/ShuttleBunny';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
