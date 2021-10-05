@@ -26,13 +26,13 @@ img {
 h2 {
     margin-top: 80px;
     margin-left: 30px;
-    color: saddlebrown;
+    color: black;
 }
 
 h2.post {
     margin-top: 80px;
     margin-left: 30px;
-    color: saddlebrown;
+    color: black;
 }
 
 .post {
@@ -60,11 +60,16 @@ p {
 }
 
 a.name {
-    color: saddlebrown;
+    color: black;
 }
 
 h3.post {
-    color: saddlebrown;
+    color: black;
+}
+
+input.form-control {
+    width: 600px;
+    margin-left: 10px;
 }
 
 

@@ -41,7 +41,7 @@ export const ChatForm = () => {
             <form>
                 <h2>Create Post</h2>
                 <fieldset>
-                    <label htmlFor="inputDescription"> Description </label>
+                    <label htmlFor="inputDescription"> Description: </label>
                     <input
                         onChange={
                             (evt) => {
