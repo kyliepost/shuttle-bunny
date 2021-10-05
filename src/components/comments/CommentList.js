@@ -75,8 +75,7 @@ useEffect(
                         return <div className="chatComment" key={`comment--${comment.id}`}>
 
                             <p>
-                                Submitted
-                                by {comment.user.name}: {""}
+                                 {comment.user.name}: {""}
                                 {comment.description}
                             </p>
                             { (comment.user.id === userId)
