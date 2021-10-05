@@ -30,7 +30,7 @@ export const RiverList = () => {
                         rivers.map(
                             (river) => {
                                 return <p className="riverDetails" key={`river--${river.id}`}>
-                                    <Link to={`/${river.id}`}>{river.name}</Link>
+                                    <Link className="name" to={`/${river.id}`}>{river.name}</Link>
                                     <img src={river.imageURL} />
                                  
                                 </p>

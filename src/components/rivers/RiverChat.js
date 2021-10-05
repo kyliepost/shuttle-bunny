@@ -48,7 +48,7 @@ useEffect(
     return (
         <>
 
-        <h2>River Chat</h2>
+        <h2 className="h2Post">River Chat</h2>
             <div>
                 <button className="btn-post" onClick={() => history.push(`/${riverId}/create`)}>Create Post</button>
             </div>
