@@ -32,7 +32,7 @@ export const RiverList = () => {
                                 return <p className="riverDetails" key={`river--${river.id}`}>
                                     <Link className="name" to={`/${river.id}`}>{river.name}</Link>
                                     <img src={river.imageURL} />
-                                 
+
                                 </p>
 
                             }
